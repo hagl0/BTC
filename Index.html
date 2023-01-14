@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Bitcoin Price</h1>
+
+<label id="btc-price"></label>
+
+<script>
+    const btcurl = "https://api.coinbase.com/v2/prices/btc-usd/spot";
+    fetch(btcurl)
+    .then(res => res.json())
+    .then(data => {
+        const btcprice = data.data.amount;
+        document.getElementById("btc-price").innerHTML = "BTC: $" + btcprice;
+    })
+    .catch(err => console.log(err))
+</script>
+
+</body>
+</html>
